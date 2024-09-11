@@ -123,6 +123,7 @@ class PantallaCatalogo extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => PantallaDetalle(
                     producto: 'Producto 1',
+                    precio: 'S/. 1000',
                     descripcion: 'Descripción del producto 1',
                     imagen: 'Imagenes/LOGO UAndina.png')),
               );
@@ -140,11 +141,14 @@ class PantallaCatalogo extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => PantallaDetalle(
                     producto: 'Producto 2',
+                    precio: 'S/. 20000',
                     descripcion: 'Descripción del producto 2',
                     imagen: 'Imagenes/LOGO UAndina.png')),
+
               );
             },
             child: Text('Ver Detalle'),
+
           ),
         ),
       ],
@@ -153,10 +157,11 @@ class PantallaCatalogo extends StatelessWidget {
 }
 class PantallaDetalle extends StatelessWidget {
   final String producto;
+  final String precio;
   final String descripcion;
   final String imagen;
 
-  PantallaDetalle({required this.producto, required this.descripcion, required this.imagen});
+  PantallaDetalle({required this.producto,required this.precio, required this.descripcion, required this.imagen});
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +176,17 @@ class PantallaDetalle extends StatelessWidget {
           children: <Widget>[
             Image.asset(imagen),
             SizedBox(height: 40),
+            Text(precio),
             Text(descripcion),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Acción de comprar
+              },
+              child: Text('Comprar'),
+              style: ElevatedButton.styleFrom(
+              ),
+            ),
           ],
         ),
       ),
@@ -182,6 +197,7 @@ class PantallaDetalle extends StatelessWidget {
         child: Icon(Icons.arrow_back),
         backgroundColor: Colors.blue[900],
       ),
+
     );
   }
 }
